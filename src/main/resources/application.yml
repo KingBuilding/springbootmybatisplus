@@ -1,0 +1,14 @@
+server:
+   port: 9088
+
+spring:
+   profiles:
+      active:  prod
+
+#logging:
+#    config: classpath:logback.xml
+#    file:  ./logs/application.log
+#    path: ./logs
+
+
+

@@ -1,0 +1,81 @@
+spring:
+#mysql 配置 开始
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/basic?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    druid:
+      max-active: 20
+      initial-size: 5
+      min-idle: 5
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+#mysql 配置 结束
+
+# mongodb 配置 开始
+#  data:
+#    mongodb:
+#      address:
+#        - 'dds-bp19b9bd582881e41541-pub.mongodb.rds.aliyuncs.com:3717'
+#        - 'dds-bp19b9bd582881e42867-pub.mongodb.rds.aliyuncs.com:3717'
+#      replica-set: mgset-14217473     #连接的数据库
+#      database: rs_riskmanagement     #授权数据库
+#      authentication-database: rs_riskmanagement
+#      username: root
+#      password: '@Darongshu2019'
+#      min-connections-per-host: 10
+#      max-connections-per-host: 100
+#      threads-allowed-to-block-for-connection-multiplier: 5
+#      server-selection-timeout: 30000
+#      max-wait-time: 120000
+#      max-connection-idel-time: 0
+#      max-connection-life-time: 0
+#      connect-timeout: 10000
+#      socket-timeout: 0
+#      socket-keep-alive: false
+#      ssl-enabled: false
+#      ssl-invalid-host-name-allowed: false
+#      always-use-m-beans: false
+#      heartbeat-socket-timeout: 20000
+#      heartbeat-connect-timeout: 20000
+#      min-heartbeat-frequency: 500
+#      heartbeat-frequency: 10000
+#      local-threshold: 15
+#mongoDb配置 结束
+
+#mybatis-plus   配置开始
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.yourpackage.*.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 3
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #mp2.3+ 全局表前缀 mp_
+    #table-prefix: mp_
+    #刷新mapper 调试神器
+    #refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    # Sequence序列接口实现类配置
+    key-generator: com.baomidou.mybatisplustest.incrementer.OracleKeyGenerator
+    #逻辑删除配置（下面3个配置）
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+    configuration:
+      #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+      map-underscore-to-camel-case: true
+      cache-enabled: false
+      #配置JdbcTypeForNull, oracle数据库必须配置
+      jdbc-type-for-null: 'null'
