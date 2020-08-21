@@ -20,7 +20,7 @@ public class DemoApplicationTests {
         User user=new User();
         user.setAge(19);
         user.setName("重说三");
-        userService.insert(user);
+        userService.save(user);
     }
 
 }

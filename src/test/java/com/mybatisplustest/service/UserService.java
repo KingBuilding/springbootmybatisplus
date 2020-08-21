@@ -1,6 +1,7 @@
 package com.mybatisplustest.service;
 
-import com.baomidou.mybatisplus.service.IService;
+
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.mybatisplustest.entity.User;
 
 
